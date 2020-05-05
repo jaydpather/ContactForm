@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 10px 10px 10px 0;
+  display: inline-block;
+  color: white;
+  
+}
+
+input[type=submit] {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: green;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: black;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 70%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+
+<script type="text/javascript">
+
+  function btnSend_Click(){
+    let fname = document.getElementById("fname");
+    let fnameString = fname.value;
+
+    let userMessage = "";
+    if(fnameString.trim() === ""){
+      userMessage = "first name is required";
+    }
+    else
+    {
+      userMessage = "saved successfully";
+    }
+
+    alert(userMessage);
+  }
+</script>
+</head>
+<body>
+
+<div class="container">
+<h1 style = "color : white"> Contact Form</h1>
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+	<div class = "row">
+		<div class = "col-25">
+			<label for ="Email">E-Mail</label>
+		</div>
+		<div class="col-75">
+			<input type = "text" id = "Email" name = "Email" placeholder = "Your E-Mail...">
+		</div>
+	</div>	
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select>
+	<option value="Pick">Pick your country</option>
+	<option value="AFG">Afghanistan</option>
+	<option value="ALA">Åland Islands</option>
+	<option value="ALB">Albania</option>
+	<option value="DZA">Algeria</option>
+	<option value="ASM">American Samoa</option>
+	<option value="AND">Andorra</option>
+	<option value="AGO">Angola</option>
+	<option value="AIA">Anguilla</option>
+	<option value="ATA">Antarctica</option>
+	<option value="ATG">Antigua and Barbuda</option>
+	<option value="ARG">Argentina</option>
+	</select>
+      </div>
+    </div>
+	<div class = "row">
+		<div class = "col-25">
+			<label for = "hearaboutus">How did you hear about us</label>
+		</div>
+		<div class = "col-75">
+			<select>
+				<option value = "Choose"> Please choose below </option>
+				<option value = "Google"> Google </option>
+				<option value = "Banner ads" > Banner ads </option>
+				<option value = "Friends" > Friends </option>
+				<option value = "Word of Mouth" > Word of Mouth </option>
+				<option value = "Other" > Other </option>			
+			</select>
+		</div>
+	</div>		
+    <div class="row">
+      <div class="col-25">
+        <label for="Comment">Comment</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Comment" name="Comment" placeholder="Any comments...?" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="button" onclick="btnSend_Click();" value="Send">
+    </div>
+	
+  </form>
+</div>
+</body>
+</html>
