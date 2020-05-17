@@ -72,6 +72,21 @@ input[type=submit]:hover {
 
 <script type="text/javascript">
 
+  const FormErrors = {
+    Success = 0,
+    FirstNameBlank = 1, //2^0
+    LastNameBlank = 2, //2 ^ 1
+    MiddleNameBlank = 4, // 2 ^ 2 
+    AddressLine1Blank = 8 // 2 ^ 3
+  };
+  Object.freeze(FormErrors);
+
+  //let errors = FirstNameBlank;
+  //let errors = LastNameBlank;
+  let errors = FirstNameBlank | LastNameBlank;
+
+  let isFirstNameBlank = (FirstNameBlank == (errors & FirstNameBlank));
+
   function btnSend_Click(){
     let fname = document.getElementById("fname");
     let fnameString = fname.value;
